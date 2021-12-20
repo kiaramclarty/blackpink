@@ -1,35 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
+import Card from "./Components/Card.js";
+import data from "./atlas-of-remote-islands.js";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function App() {
+  console.log(data.islands[0].name);
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Black Pink</h1>
-        <div className="container">
-        <h2 className="section-title">Seniors</h2>
+  return (
+    <div>
+      <div className="container">
+        <h1 className="section-title">Atlas of Remote Islands</h1>
+      </div>
+
+      <div className="container">
+        <h2 className="section-title">Islands</h2>
         <ul className="cards">
-          <li className="cards-item third">
-            <div className="card">
-              <div className="card-content">
-                <div className="card-image"></div>
-                <div className="card-container">
-                  <div className="card-title">Name M. Surname</div>
-                  <p className="card-text">"Senior quote"</p>
-                  <p className="card-text">Activities</p>
-                </div>
-                </div>
-                </div>
-                </li>
-                </ul>
-      
-    );
-  }
+          {data.islands.map((island) => {
+            return <Card island={island} />;
+          })}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default App;
